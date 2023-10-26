@@ -5,8 +5,12 @@ export default function Searchbar ({data}) {
   const [query, setQuery] = useState("")
   const [fltrdRslts, setFltrdRslts] = useState([])
   
-  function filterData () {
-    return data.filter(obj => obj.title.toLowerCase().includes(query))
+  function filterData() {
+    return data.filter((obj) => {
+      return Object.values(obj).some((value) =>
+        String(value).toLowerCase().includes(query)
+      );
+    });
   }
 
   function handleCLick () {
