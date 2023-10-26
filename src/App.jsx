@@ -11,7 +11,7 @@ function App() {
         "http://hn.algolia.com/api/v1/search?query=react&tags=story"
       );
       const data = await response.json();
-      setData(data);
+      setData(data.hits);
     } catch (error) {
       alert(`There was an error: ${error}`);
     }
